@@ -9,17 +9,12 @@ mongoose.connect('mongodb+srv://Wass:0000@cluster0.uzmuaou.mongodb.net/?retryWri
     useUnifiedTopology: true,})
     .then(() => console.log('Connexion to MongoDB Succeeded'))
     .catch((error) => console.log('Connexion to MongoDB Failed | Reason : ', error));
-    // .catch(() => console.log('Connexion to MongoDB Failed'));
-
 
 app.use(express.json())
 
 const Product = require('./models/Product');
 
 const productRoutes = require('./routes/product');
-
-
-
 
  app.use((req, res, next) => {
      res.setHeader('Access-Control-Allow-Origin', '*');
@@ -28,12 +23,7 @@ const productRoutes = require('./routes/product');
      next();
    });
 
-
-
 app.use('/api/product', productRoutes);
-
-
-
 
 module.exports = app;
 
