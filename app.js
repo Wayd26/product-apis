@@ -12,9 +12,9 @@ mongoose.connect('mongodb+srv://Wass:0000@cluster0.uzmuaou.mongodb.net/?retryWri
 
 app.use(express.json())
 
-const Product = require('./models/Product');
 
 const productRoutes = require('./routes/product');
+const userRoutes = require('./routes/user');
 
  app.use((req, res, next) => {
      res.setHeader('Access-Control-Allow-Origin', '*');
@@ -24,6 +24,8 @@ const productRoutes = require('./routes/product');
    });
 
 app.use('/api/product', productRoutes);
+
+app.use('/api/user', userRoutes);
 
 module.exports = app;
 
